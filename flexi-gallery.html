@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexi Character Gallery - Complete Collection</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            padding: 20px; 
+            background: #f5f5f5; 
+            line-height: 1.6;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .category {
+            margin-bottom: 40px;
+        }
+        .category h3 {
+            color: #4CAF50;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+        }
+        .gallery { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); 
+            gap: 15px; 
+            margin-bottom: 30px; 
+        }
+        .pose-card { 
+            background: white; 
+            padding: 12px; 
+            border-radius: 10px; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .pose-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        .pose-card img { 
+            width: 70px; 
+            height: 70px; 
+            margin-bottom: 8px; 
+        }
+        .pose-name { 
+            font-weight: bold; 
+            color: #333; 
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        .pose-code { 
+            font-family: monospace; 
+            background: #f0f0f0; 
+            padding: 3px 6px; 
+            border-radius: 4px; 
+            font-size: 11px; 
+            color: #666; 
+            cursor: pointer;
+        }
+        .pose-code:hover {
+            background: #e0e0e0;
+        }
+        .usage-section {
+            max-width: 800px;
+            margin: 40px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        pre {
+            background: #f8f8f8;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border-left: 4px solid #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎭 Flexi Character Gallery</h1>
+        <p>Complete collection of all available Flexi poses organized by category</p>
+    </div>
+    
+    <!-- EMOTIONS & EXPRESSIONS -->
+    <div class="category">
+        <h3>😊 Emotions & Expressions</h3>
+        <div class="gallery">
+            <div class="pose-card">
+                <img src="Flexi_Confident.svg" alt="Confident">
+                <div class="pose-name">Confident</div>
+                <div class="pose-code">Flexi.confident</div>
+            </div>
+            
+            <div class="pose-card">
+                <img src="Flexi_Confident-reverse.svg" alt="Confident Reverse">
+                <div class="pose-name">Confident Reverse</div>
+                <div class="pose-code">Flexi.confident_reverse</div>
+            </div>
+            
+            <div class="pose-card">
+                <img src="Flexi_Excited.svg" alt="Excited">
+                <div class="pose-name">Excited</div>
+                <div class="pose-code">Flexi.excited</div>
+            </div>
+            
+            <div class="pose-card">
+                <img src="Flexi_Confused.svg" alt="Confused">
+                <div class="pose-name">Confused</div>
+                <div class="pose-code">Flexi.confused</div>
+            </div>
+            
+            <div class="pose-card">
+                <img src="Flexi_Worried.svg" alt="Worried">
+                <div class="pose-name">Worried</div>
+                <div class="pose-code">Flexi.worried</div>
+            </div>
+            
+            <div class="pose-card">
+                <img src="Flexi_Woah.svg" alt="Woah">
+                <div class="pose-name">Woah</div>
+                <div class="pose-code">Flexi.woah</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GREETINGS & COMMUNICATION -->
+    <div class="category">
+        <h3>👋 Greetings & Communication</h3>
+        <div class="gallery">
+            <div class="pose-card">
+                <img src="Flexi_Hello.svg" alt="Hello">
+                <div class="pose-name">Hello</div>
+                <div class="pose-code">Flexi.hello</div>
+            </div>
+            
+            <div class="pose-card">
+                <img src="Flexi_Wave.svg" alt="Wave">
+                <div class="pose-name">Wave</div>
+                <div class="pose-code">Flexi.wave</div>
+            </div>
+            
+            <div class="pose-card">
+                <img src="Flexi_Hey.svg" alt="Hey">
+                <div class="pose-name">Hey</div>
+                <div class="pose-code">Flexi.hey</div>
+            </div>
+            
+            <div class="pose-card">
+                <img src="Flexi_Point.svg" alt="Pointing">
+                <div class="pose-name">Pointing</div>
+                <div class="pose-code">Flexi.pointing</div>
+            </div>
+            
+            <div class="pose-card">
+                <img src="Flexi_ThumbsUp.svg" alt="Thumbs Up">
+                <div class="pose-name">Thumbs Up</div>
+                <div class="pose-code">Flexi.thumbs_up</div>
+            </div>
+            
+            <div class="pose-card">
+                <img src="Flexi_Megaphone.svg" alt="Megaphone">
+                <div class="pose-name">Megaphone</div>
+                <div class="pose-code">Flexi.megaphone</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TEACHING & LEARNING -->
+    <div class="category">
+        <h3>📚 Teaching & Learning</h3>
+        <div class="gallery">
+            <div class="pose-card">
+                <img src="Flexi_Teacher.svg" alt="Teacher">
+                <div class="pose-name">Teacher</div>
+                <div class="pose-code">Flexi.teacher</div>
+            </div>
+            
+            <div class="pose-card">
+                <img src="Flexi_Reading.svg" alt="Reading">
+                <div class="pose-name">Reading</div>
+                <div class="pose-code">Flexi.reading</div>
+            </div>
+            
+            <div class="pose-card">
+                <img src="Flexi_Books.svg" alt="Books">
+                <div class="pose-name">Books</div>
+                <div class="pose-code">Flexi.books</div>
+            </div>
+            
+            <div class="pose-card">
+                <img src="Flexi_Present.svg" alt="Present">
+                <div class="pose-name">Present</div>
+                <div class="pose-code">Flexi.present</div>
+            </div>
+            
+            <div class="pose-card">
+                <img src="Flexi_Idea.svg" alt="Idea">
+                <div class="pose-name">Idea</div>
+                <div class="pose-code">Flexi.idea</div>
+            </div>
+            
+            <div class="pose-card">
+                <img src="Flexi_HoldingSquare.svg" alt="Holding Square">
+                <div class="pose-name">Holding Square</div>
+                <div class="pose-code">Flexi.holding_square</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SUCCESS & CELEBRATION -->
+    <div class="category">
+        <h3>🎉 Success & Celebration</h3>
+        <div class="gallery">
+            <div class="pose-card">
+                <img src="Flexi_Super.svg" alt="Super">
+                <div class="pose-name">Super</div>
+                <div class="pose-code">Flexi.super</div>
+            </div>
+            
+            <div class="pose-card">
+                <img src="Flexi_Stars.svg" alt="Stars">
+                <div class="pose-name">Stars</div>
+                <div class="pose-code">Flexi.stars</div>
+            </div>
+            
+            <div class="pose-card">
+                <img src="Flexi_Flex.svg" alt="Flex">
+                <div class="pose-name">Flex</div>
+                <div class="pose-code">Flexi.flex</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROFESSIONAL CHARACTERS -->
+    <div class="category">
+        <h3>👨‍💼 Professional Characters</h3>
+        <div class="gallery">
+            <div class="pose-card">
+                <img src="Flexi_Wizard.svg" alt="Wizard">
+                <div class="pose-name">Wizard</div>
+                <div class="pose-code">Flexi.wizard</div>
+            </div>
+            
+            <div class="pose-card">
+                <img src="Flexi_Artist.svg" alt="Artist">
+                <div class="pose-name">Artist</div>
+                <div class="pose-code">Flexi.artist</div>
+            </div>
+            
+            <div class="pose-card">
+                <img src="Flexi_Astro.svg" alt="Astronaut">
+                <div class="pose-name">Astronaut</div>
+                <div class="pose-code">Flexi.astro</div>
+            </div>
+            
+            <div class="pose-card">
+                <img src="Flexi_Boxer.svg" alt="Boxer">
+                <div class="pose-name">Boxer</div>
+                <div class="pose-code">Flexi.boxer</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOOLS & ACTIVITIES -->
+    <div class="category">
+        <h3>🔧 Tools & Activities</h3>
+        <div class="gallery">
+            <div class="pose-card">
+                <img src="Flexi_Telescope.svg" alt="Telescope">
+                <div class="pose-name">Telescope</div>
+                <div class="pose-code">Flexi.telescope</div>
+            </div>
+            
+            <div class="pose-card">
+                <img src="Flexi_Watering.svg" alt="Watering">
+                <div class="pose-name">Watering</div>
+                <div class="pose-code">Flexi.watering</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FUN & SPECIAL -->
+    <div class="category">
+        <h3>🎪 Fun & Special</h3>
+        <div class="gallery">
+            <div class="pose-card">
+                <img src="Flexi_Excited-snowman.svg" alt="Excited Snowman">
+                <div class="pose-name">Excited Snowman</div>
+                <div class="pose-code">Flexi.excited_snowman</div>
+            </div>
+            
+            <div class="pose-card">
+                <img src="Flexi_Faceplant.svg" alt="Faceplant">
+                <div class="pose-name">Faceplant</div>
+                <div class="pose-code">Flexi.faceplant</div>
+            </div>
+            
+            <div class="pose-card">
+                <img src="Flexi_Modal.svg" alt="Modal">
+                <div class="pose-name">Modal</div>
+                <div class="pose-code">Flexi.modal</div>
+            </div>
+            
+            <div class="pose-card">
+                <img src="Flexi_IndianCricket.svg" alt="Indian Cricket">
+                <div class="pose-name">Indian Cricket</div>
+                <div class="pose-code">Flexi.indian_cricket</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="usage-section">
+        <h2>📖 How to Use</h2>
+        <p>Click any pose code above to copy it, then use it in your <code>flexi_steps</code> array:</p>
+        <pre>const flexi_steps = [
+  { pose: Flexi.confident, message: "I'm ready to learn!" },
+  { pose: Flexi.teacher, message: "Let me explain this concept..." },
+  { pose: Flexi.excited, message: "This is amazing!" },
+  { pose: Flexi.thumbs_up, message: "Great job!" },
+  { pose: Flexi.confused, message: "Need help with this?" }
+];</pre>
+        
+        <h3>💡 Quick Reference by Use Case</h3>
+        <ul>
+            <li><strong>Starting a lesson:</strong> <code>Flexi.confident</code>, <code>Flexi.hello</code>, <code>Flexi.teacher</code></li>
+            <li><strong>Explaining concepts:</strong> <code>Flexi.teacher</code>, <code>Flexi.pointing</code>, <code>Flexi.present</code></li>
+            <li><strong>Student success:</strong> <code>Flexi.thumbs_up</code>, <code>Flexi.super</code>, <code>Flexi.stars</code></li>
+            <li><strong>Student needs help:</strong> <code>Flexi.confused</code>, <code>Flexi.worried</code>, <code>Flexi.idea</code></li>
+            <li><strong>Fun moments:</strong> <code>Flexi.excited</code>, <code>Flexi.woah</code>, <code>Flexi.flex</code></li>
+            <li><strong>Subject-specific:</strong> <code>Flexi.wizard</code> (magic/fantasy), <code>Flexi.astro</code> (science), <code>Flexi.artist</code> (art)</li>
+        </ul>
+    </div>
+    
+    <script>
+        // Add click-to-copy functionality
+        document.querySelectorAll('.pose-code').forEach(code => {
+            code.addEventListener('click', () => {
+                navigator.clipboard.writeText(code.textContent);
+                const original = code.textContent;
+                code.textContent = 'Copied!';
+                setTimeout(() => code.textContent = original, 1000);
+            });
+        });
+    </script>
+</body>
+</html>
