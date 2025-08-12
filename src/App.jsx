@@ -16,13 +16,13 @@ function App() {
     { pose: Flexi.idea, message: "16 rectangles give us an even finer approximation!" },
     { pose: Flexi.wizard, message: "32 rectangles - we're getting very close to the real area!" },
     
-    // 3D Steps (7-12)
+    // 3D Steps (7-12) - with actual calculated VOLUMES
     { pose: Flexi.telescope, message: "Now let's see this in 3D! The function becomes a surface." },
-    { pose: Flexi.holding_square, message: "2 discs rotating around the x-axis!" },
-    { pose: Flexi.megaphone, message: "4 discs give us a better 3D approximation!" },
-    { pose: Flexi.reading, message: "8 discs create a smoother 3D volume!" },
-    { pose: Flexi.super, message: "16 discs - the volume is becoming very clear!" },
-    { pose: Flexi.confident, message: "32 discs - we can see the complete 3D revolution!" }
+    { pose: Flexi.holding_square, message: "2 discs: Est. 1.5π, Actual 2π" },
+    { pose: Flexi.megaphone, message: "4 discs: Est. 1.75π, Actual 2π" },
+    { pose: Flexi.reading, message: "8 discs: Est. 1.875π, Actual 2π" },
+    { pose: Flexi.super, message: "16 discs: Est. 1.9375π, Actual 2π" },
+    { pose: Flexi.confident, message: "32 discs: Est. 1.96875π, Actual 2π" }
   ];
 
   return (
