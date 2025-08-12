@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Template from './template/Template.jsx';
 import Flexi from './template/assets/Flexi.js';
-import { Step1_2DFunction } from './components';
+import { Step1_2DFunction, Step2_DiscMethod } from './components';
 
 function App() {
   const [current_step, set_current_step] = useState(1);
@@ -14,10 +14,11 @@ function App() {
   // 🟢 MODIFY THE SECTION BELOW THIS LINE
   // ==========================================
   
-  const total_steps = 1; // We'll start with 1 step for now
+  const total_steps = 2; // Now we have 2 steps
   
   const flexi_steps = [
-    { pose: Flexi.teacher, message: "Let's start with the 2D function! This is y = 2 - x" }
+    { pose: Flexi.teacher, message: "Let's start with the 2D function! This is y = 2 - x" },
+    { pose: Flexi.excited, message: "Now see how each point creates a disc when rotated!" }
   ];
 
   // ==========================================
@@ -42,6 +43,7 @@ function App() {
       {/* ================================================= */}
       
       {current_step === 1 && <Step1_2DFunction />}
+      {current_step === 2 && <Step2_DiscMethod />}
       
       {/* ================================================= */}
       {/* 🟢 HEY CURSUR! VIBE CODE INSIDE THIS AREA ABOVE! */}

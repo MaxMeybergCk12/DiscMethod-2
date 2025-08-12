@@ -3,7 +3,7 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import { CoordinateGrid, FunctionPlot } from './subComponents';
 
-function FunctionCurve() {
+function DiscMethodVisualization() {
   return (
     <group>
       {/* Reusable coordinate grid */}
@@ -27,11 +27,22 @@ function FunctionCurve() {
         labelPosition={[2.5, 2.5, 0]}
         labelSize={0.3}
       />
+      
+      {/* Two large rectangles like Riemann sum */}
+      <mesh position={[0.5, 0.75, 0]}>
+        <boxGeometry args={[1, 1.5, 0.1]} />
+        <meshStandardMaterial color="#f59e0b" opacity={0.7} transparent={true} />
+      </mesh>
+      
+      <mesh position={[1.5, 0.25, 0]}>
+        <boxGeometry args={[1, 0.5, 0.1]} />
+        <meshStandardMaterial color="#f59e0b" opacity={0.7} transparent={true} />
+      </mesh>
     </group>
   );
 }
 
-function Step1_2DFunction() {
+function Step2_DiscMethod() {
   return (
     <div className="w-full h-full flex flex-col items-center justify-center p-2">
       <div className="w-full h-full bg-gray-100 rounded-lg overflow-hidden">
@@ -41,12 +52,12 @@ function Step1_2DFunction() {
         >
           <ambientLight intensity={0.6} />
           
-          <FunctionCurve />
+          <DiscMethodVisualization />
           
           <OrbitControls 
             enablePan={true}
             enableZoom={true}
-            enableRotate={false}
+            enableRotate={true}
             enableDamping={true}
             dampingFactor={0.05}
           />
@@ -56,4 +67,4 @@ function Step1_2DFunction() {
   );
 }
 
-export default Step1_2DFunction;
+export default Step2_DiscMethod;
