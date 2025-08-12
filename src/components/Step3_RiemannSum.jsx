@@ -3,7 +3,7 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import { CoordinateGrid, FunctionPlot } from './subComponents';
 
-function DiscMethodVisualization() {
+function RiemannSumVisualization() {
   return (
     <group>
       {/* Reusable coordinate grid */}
@@ -28,21 +28,31 @@ function DiscMethodVisualization() {
         labelSize={0.3}
       />
       
-      {/* Two large rectangles like Riemann sum */}
-      <mesh position={[0.5, 0.75, 0]}>
-        <boxGeometry args={[1, 1.5, 0.1]} />
+      {/* Four rectangles like Riemann sum */}
+      <mesh position={[0.25, 0.875, 0]}>
+        <boxGeometry args={[0.5, 1.75, 0.1]} />
         <meshStandardMaterial color="#6b7280" opacity={0.7} transparent={true} />
       </mesh>
       
-      <mesh position={[1.5, 0.25, 0]}>
-        <boxGeometry args={[1, 0.5, 0.1]} />
+      <mesh position={[0.75, 0.625, 0]}>
+        <boxGeometry args={[0.5, 1.25, 0.1]} />
+        <meshStandardMaterial color="#6b7280" opacity={0.7} transparent={true} />
+      </mesh>
+      
+      <mesh position={[1.25, 0.375, 0]}>
+        <boxGeometry args={[0.5, 0.75, 0.1]} />
+        <meshStandardMaterial color="#6b7280" opacity={0.7} transparent={true} />
+      </mesh>
+      
+      <mesh position={[1.75, 0.125, 0]}>
+        <boxGeometry args={[0.5, 0.25, 0.1]} />
         <meshStandardMaterial color="#6b7280" opacity={0.7} transparent={true} />
       </mesh>
     </group>
   );
 }
 
-function Step2_DiscMethod() {
+function Step3_RiemannSum() {
   return (
     <div className="w-full h-full flex flex-col items-center justify-center p-2">
       <div className="w-full h-full bg-gray-100 rounded-lg overflow-hidden">
@@ -52,12 +62,12 @@ function Step2_DiscMethod() {
         >
           <ambientLight intensity={0.6} />
           
-          <DiscMethodVisualization />
+          <RiemannSumVisualization />
           
           <OrbitControls 
             enablePan={true}
             enableZoom={true}
-            enableRotate={true}
+            enableRotate={false}
             enableDamping={true}
             dampingFactor={0.05}
           />
@@ -67,4 +77,4 @@ function Step2_DiscMethod() {
   );
 }
 
-export default Step2_DiscMethod;
+export default Step3_RiemannSum;
