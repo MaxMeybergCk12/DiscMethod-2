@@ -1,9 +1,9 @@
 import React from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
-import { CoordinateGrid, FunctionPlot } from './subComponents';
+import { CoordinateGrid, FunctionPlot, RiemannSum } from './subComponents';
 
-function DiscMethodVisualization() {
+function Step6Visualization() {
   return (
     <group>
       {/* Reusable coordinate grid */}
@@ -28,21 +28,19 @@ function DiscMethodVisualization() {
         labelSize={0.3}
       />
       
-      {/* Two large rectangles like Riemann sum */}
-      <mesh position={[0.5, 0.75, 0]}>
-        <boxGeometry args={[1, 1.5, 0.1]} />
-        <meshStandardMaterial color="#6b7280" opacity={0.7} transparent={true} />
-      </mesh>
-      
-      <mesh position={[1.5, 0.25, 0]}>
-        <boxGeometry args={[1, 0.5, 0.1]} />
-        <meshStandardMaterial color="#6b7280" opacity={0.7} transparent={true} />
-      </mesh>
+      {/* 32 rectangles using automated component */}
+      <RiemannSum 
+        numberOfRectangles={32}
+        startX={0}
+        endX={2}
+        color="#6b7280"
+        opacity={0.7}
+      />
     </group>
   );
 }
 
-function Step2_DiscMethod() {
+function Step6_32Rectangles() {
   return (
     <div className="w-full h-full flex flex-col items-center justify-center p-2">
       <div className="w-full h-full bg-gray-100 rounded-lg overflow-hidden">
@@ -52,12 +50,12 @@ function Step2_DiscMethod() {
         >
           <ambientLight intensity={0.6} />
           
-          <DiscMethodVisualization />
+          <Step6Visualization />
           
           <OrbitControls 
             enablePan={true}
             enableZoom={true}
-            enableRotate={true}
+            enableRotate={false}
             enableDamping={true}
             dampingFactor={0.05}
           />
@@ -67,4 +65,4 @@ function Step2_DiscMethod() {
   );
 }
 
-export default Step2_DiscMethod;
+export default Step6_32Rectangles;
