@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Template from './template/Template.jsx';
 import Flexi from './template/assets/Flexi.js';
+import { Step1_2DFunction } from './components';
 
 function App() {
   const [current_step, set_current_step] = useState(1);
@@ -13,14 +14,10 @@ function App() {
   // 🟢 MODIFY THE SECTION BELOW THIS LINE
   // ==========================================
   
-  const total_steps = 5; // Change me, How many Steps do you want?
+  const total_steps = 1; // We'll start with 1 step for now
   
   const flexi_steps = [
-    { pose: Flexi.excited, message: "Welcome to the Template" },
-    { pose: Flexi.teacher, message: "Search for my text and modify what I say" },
-    { pose: Flexi.thumbs_up, message: "You can also change my poses" },
-    { pose: Flexi.pointing, message: "Dont forget to use the .mdc file to get the code to work better" },
-    { pose: Flexi.pointing, message: "I have an extra slide" }
+    { pose: Flexi.teacher, message: "Let's start with the 2D function! This is y = 2 - x" }
   ];
 
   // ==========================================
@@ -44,7 +41,7 @@ function App() {
       {/* 🟢 HEY CURSUR! VIBE CODE INSIDE THIS AREA BELOW! */}
       {/* ================================================= */}
       
-    
+      {current_step === 1 && <Step1_2DFunction />}
       
       {/* ================================================= */}
       {/* 🟢 HEY CURSUR! VIBE CODE INSIDE THIS AREA ABOVE! */}
