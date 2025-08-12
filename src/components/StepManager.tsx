@@ -23,6 +23,7 @@ interface StepConfig {
   mode: '2D' | '3D';
   numberOfRectangles: number;
   description: string;
+  cameraTilt?: [number, number, number]; // Camera position for this step
 }
 
 // Function configurations
@@ -38,20 +39,20 @@ export const functionConfigs = {
 // Step configurations for all 12 steps
 export const allStepConfigs: StepConfig[] = [
   // 2D Steps (1-6) - Show on X-Z plane (React Three Drei convention)
-  { stepNumber: 1, mode: '2D', numberOfRectangles: 0, description: '2D Function' },
-  { stepNumber: 2, mode: '2D', numberOfRectangles: 2, description: '2 Rectangles' },
-  { stepNumber: 3, mode: '2D', numberOfRectangles: 4, description: '4 Rectangles' },
-  { stepNumber: 4, mode: '2D', numberOfRectangles: 8, description: '8 Rectangles' },
-  { stepNumber: 5, mode: '2D', numberOfRectangles: 16, description: '16 Rectangles' },
-  { stepNumber: 6, mode: '2D', numberOfRectangles: 32, description: '32 Rectangles' },
+  { stepNumber: 1, mode: '2D', numberOfRectangles: 0, description: '2D Function', cameraTilt: [0, 0, 8] },
+  { stepNumber: 2, mode: '2D', numberOfRectangles: 2, description: '2 Rectangles', cameraTilt: [0, 0, 8] },
+  { stepNumber: 3, mode: '2D', numberOfRectangles: 4, description: '4 Rectangles', cameraTilt: [0, 0, 8] },
+  { stepNumber: 4, mode: '2D', numberOfRectangles: 8, description: '8 Rectangles', cameraTilt: [0, 0, 8] },
+  { stepNumber: 5, mode: '2D', numberOfRectangles: 16, description: '16 Rectangles', cameraTilt: [0, 0, 8] },
+  { stepNumber: 6, mode: '2D', numberOfRectangles: 32, description: '32 Rectangles', cameraTilt: [0, 0, 8] },
   
   // 3D Steps (7-12) - Show on X-Z plane with Y-axis for height
-  { stepNumber: 7, mode: '3D', numberOfRectangles: 0, description: '3D Function' },
-  { stepNumber: 8, mode: '3D', numberOfRectangles: 2, description: '2 Discs' },
-  { stepNumber: 9, mode: '3D', numberOfRectangles: 4, description: '4 Discs' },
-  { stepNumber: 10, mode: '3D', numberOfRectangles: 8, description: '8 Discs' },
-  { stepNumber: 11, mode: '3D', numberOfRectangles: 16, description: '16 Discs' },
-  { stepNumber: 12, mode: '3D', numberOfRectangles: 32, description: '32 Discs' }
+  { stepNumber: 7, mode: '3D', numberOfRectangles: 0, description: '3D Function', cameraTilt: [8, 6, 8] },
+  { stepNumber: 8, mode: '3D', numberOfRectangles: 2, description: '2 Discs', cameraTilt: [10, 8, 10] },
+  { stepNumber: 9, mode: '3D', numberOfRectangles: 4, description: '4 Discs', cameraTilt: [12, 10, 12] },
+  { stepNumber: 10, mode: '3D', numberOfRectangles: 8, description: '8 Discs', cameraTilt: [14, 12, 14] },
+  { stepNumber: 11, mode: '3D', numberOfRectangles: 16, description: '16 Discs', cameraTilt: [16, 14, 16] },
+  { stepNumber: 12, mode: '3D', numberOfRectangles: 32, description: '32 Discs', cameraTilt: [18, 16, 18] }
 ];
 
 // 3D Riemann Sum component for discs
@@ -111,7 +112,7 @@ function ThreeDRiemannSum({
         <mesh 
           key={disc.key} 
           position={disc.position}
-          rotation={[Math.PI/2, 0, Math.PI / 2] } 
+          rotation={[Math.PI/2, 0, Math.PI / 2] } // DO NOT CHANGE, Cylindeders work hewre :D
         >
           <cylinderGeometry args={[disc.radius, disc.radius, disc.height, 32]} />
           <meshStandardMaterial color={color} opacity={opacity} transparent={true} />
@@ -143,7 +144,7 @@ function StepVisualization({ stepConfig, functionConfig }: { stepConfig: StepCon
         color="#10b981"
         lineWidth={3}
         showLabel={true}
-        labelPosition={[1, 1, 0]}
+        labelPosition={[2, 2, 0]} // IMPORTANT: This is the position of the wequation itself
         labelSize={0.3}
       />
       
@@ -188,7 +189,7 @@ function StepManager({
       <div className="w-full h-full bg-gray-100 rounded-lg overflow-hidden">
         <Canvas 
           camera={{ 
-            position: is3D ? [8, 6, 8] : [0, 6, 8], 
+            position: currentStepConfig.cameraTilt || [0, 0, 8], 
             fov: 50 
           }} 
           style={{ background: '#f8fafc' }}
@@ -204,7 +205,7 @@ function StepManager({
           <OrbitControls 
             enablePan={true} 
             enableZoom={true} 
-            enableRotate={is3D} 
+            enableRotate={true} 
             enableDamping={true} 
             dampingFactor={0.05} 
           />
