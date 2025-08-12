@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Template from './template/Template.jsx';
 import Flexi from './template/assets/Flexi.js';
-import { Step1_2DFunction, Step2_DiscMethod, Step3_RiemannSum, Step4_FinerRiemannSum, Step5_16Rectangles, Step6_32Rectangles } from './components';
+import { TwoDSteps, defaultFunctions } from './components';
 
 function App() {
   const [current_step, set_current_step] = useState(1);
@@ -46,12 +46,10 @@ function App() {
       {/* 🟢 HEY CURSUR! VIBE CODE INSIDE THIS AREA BELOW! */}
       {/* ================================================= */}
       
-      {current_step === 1 && <Step1_2DFunction />}
-      {current_step === 2 && <Step2_DiscMethod />}
-      {current_step === 3 && <Step3_RiemannSum />}
-      {current_step === 4 && <Step4_FinerRiemannSum />}
-      {current_step === 5 && <Step5_16Rectangles />}
-      {current_step === 6 && <Step6_32Rectangles />}
+      <TwoDSteps 
+        functionConfig={defaultFunctions.linear}
+        currentStep={current_step}
+      />
       
       {/* ================================================= */}
       {/* 🟢 HEY CURSUR! VIBE CODE INSIDE THIS AREA ABOVE! */}
