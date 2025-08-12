@@ -110,8 +110,8 @@ function ThreeDRiemannSum({
       {discs.map((disc) => (
         <mesh 
           key={disc.key} 
-          position={disc.position} 
-          rotation={[0, Math.PI / 2, 0]}
+          position={disc.position}
+          rotation={[Math.PI/2, 0, Math.PI / 2] } 
         >
           <cylinderGeometry args={[disc.radius, disc.radius, disc.height, 32]} />
           <meshStandardMaterial color={color} opacity={opacity} transparent={true} />
