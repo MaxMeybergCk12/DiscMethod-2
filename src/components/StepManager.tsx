@@ -26,6 +26,22 @@ interface StepConfig {
   cameraTilt?: [number, number, number]; // Camera position for this step
 }
 
+// Shared OrbitControls configuration for both 2D and 3D
+const sharedOrbitControls = {
+  enablePan: true,
+  enableZoom: true,
+  enableRotate: true,
+  enableDamping: true,
+  dampingFactor: 0.05,
+  panSpeed: 0.5,
+  zoomSpeed: 0.5,
+  rotateSpeed: 0.5,
+  maxDistance: 50,
+  minDistance: 2,
+  maxPolarAngle: Math.PI,
+  minPolarAngle: 0
+};
+
 // Function configurations
 export const functionConfigs = {
   linear: {
@@ -54,6 +70,39 @@ export const allStepConfigs: StepConfig[] = [
   { stepNumber: 11, mode: '3D', numberOfRectangles: 16, description: '16 Discs', cameraTilt: [16, 14, 16] },
   { stepNumber: 12, mode: '3D', numberOfRectangles: 32, description: '32 Discs', cameraTilt: [18, 16, 18] }
 ];
+
+// Shared Riemann Sum component for both 2D and 3D
+function RiemannSumVisualization({ 
+  stepConfig, 
+  functionConfig, 
+  is3D 
+}: { 
+  stepConfig: StepConfig; 
+  functionConfig: FunctionConfig; 
+  is3D: boolean; 
+}) {
+  if (stepConfig.numberOfRectangles === 0) return null;
+
+  if (is3D) {
+    return <ThreeDRiemannSum 
+      numberOfRectangles={stepConfig.numberOfRectangles}
+      startX={functionConfig.startX}
+      endX={functionConfig.endX}
+      functionType={functionConfig.functionType}
+      color="#6b7280"
+      opacity={0.7}
+    />;
+  } else {
+    return <RiemannSum 
+      numberOfRectangles={stepConfig.numberOfRectangles}
+      startX={functionConfig.startX}
+      endX={functionConfig.endX}
+      functionType={functionConfig.functionType}
+      color="#6b7280"
+      opacity={0.7}
+    />;
+  }
+}
 
 // 3D Riemann Sum component for discs
 function ThreeDRiemannSum({ 
@@ -148,27 +197,11 @@ function StepVisualization({ stepConfig, functionConfig }: { stepConfig: StepCon
         labelSize={0.3}
       />
       
-      {stepConfig.numberOfRectangles > 0 && (
-        is3D ? (
-          <ThreeDRiemannSum 
-            numberOfRectangles={stepConfig.numberOfRectangles}
-            startX={functionConfig.startX}
-            endX={functionConfig.endX}
-            functionType={functionConfig.functionType}
-            color="#6b7280"
-            opacity={0.7}
-          />
-        ) : (
-          <RiemannSum 
-            numberOfRectangles={stepConfig.numberOfRectangles}
-            startX={functionConfig.startX}
-            endX={functionConfig.endX}
-            functionType={functionConfig.functionType}
-            color="#6b7280"
-            opacity={0.7}
-          />
-        )
-      )}
+      <RiemannSumVisualization 
+        stepConfig={stepConfig} 
+        functionConfig={functionConfig} 
+        is3D={is3D} 
+      />
     </group>
   );
 }
@@ -182,7 +215,6 @@ function StepManager({
   currentStep?: number;
 }) {
   const currentStepConfig = allStepConfigs.find(step => step.stepNumber === currentStep) || allStepConfigs[0];
-  const is3D = currentStepConfig.mode === '3D';
   
   return (
     <div className="w-full h-full flex flex-col items-center justify-center p-2">
@@ -202,13 +234,7 @@ function StepManager({
             functionConfig={functionConfig} 
           />
           
-          <OrbitControls 
-            enablePan={true} 
-            enableZoom={true} 
-            enableRotate={true} 
-            enableDamping={true} 
-            dampingFactor={0.05} 
-          />
+          <OrbitControls {...sharedOrbitControls} />
         </Canvas>
       </div>
     </div>
