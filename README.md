@@ -83,4 +83,4 @@ const flexi_steps = [
 **Why use the interactive gallery?**
 - ✅ All images display at consistent sizes
 - ✅ Click any code to copy it instantly  
-- ✅ Organized by category with hover effects
+- ✅ Organized by category with hover effects# DiscMethod-2
