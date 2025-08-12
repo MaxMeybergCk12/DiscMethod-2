@@ -10,7 +10,7 @@ function CoordinateGrid({
 }) {
   return (
     <group>
-      {/* Grid for reference - facing X-Y plane by default */}
+      {/* Grid for reference - facing X-Z plane for React Three Drei */}
       <Grid 
         args={[size, size]} 
         cellSize={1} 
@@ -32,32 +32,32 @@ function CoordinateGrid({
         <meshStandardMaterial color="#ef4444" />
       </mesh>
       
-      {/* Y axis (blue) */}
+      {/* Z axis (blue) - This is the "Y" axis in 2D math, but "Z" in React Three Drei */}
       <mesh position={[0, 0, 0]}>
-        <boxGeometry args={[0.02, axisLength, 0.02]} />
+        <boxGeometry args={[0.02, 0.02, axisLength]} />
         <meshStandardMaterial color="#3b82f6" />
       </mesh>
       
-      {/* Z axis (purple) - optional */}
+      {/* Y axis (purple) - This is height in 3D space */}
       {showZAxis && (
         <mesh position={[0, 0, 0]}>
-          <boxGeometry args={[0.02, 0.02, axisLength]} />
+          <boxGeometry args={[0.02, axisLength, 0.02]} />
           <meshStandardMaterial color="#8b5cf6" />
         </mesh>
       )}
       
-      {/* Axis labels - optional */}
+      {/* Axis labels - X and Z for the main plane, Y for height */}
       {showLabels && (
         <>
           <Text position={[axisLength/2, -0.5, 0]} fontSize={0.5} color="#ef4444">
             x
           </Text>
-          <Text position={[-0.5, axisLength/2, 0]} fontSize={0.5} color="#3b82f6">
-            y
+          <Text position={[-0.5, 0, axisLength/2]} fontSize={0.5} color="#3b82f6">
+            z
           </Text>
           {showZAxis && (
-            <Text position={[-0.5, 0, axisLength/2]} fontSize={0.5} color="#8b5cf6">
-              z
+            <Text position={[-0.5, axisLength/2, 0]} fontSize={0.5} color="#8b5cf6">
+              y
             </Text>
           )}
         </>
