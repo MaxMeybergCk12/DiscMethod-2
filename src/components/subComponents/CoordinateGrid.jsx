@@ -4,7 +4,7 @@ import { Grid, Text } from '@react-three/drei';
 function CoordinateGrid({ 
   size = 8, 
   showZAxis = false, 
-  gridRotation = [Math.PI / 2, 0, 0],
+  gridRotation = [0, 0, 0],
   axisLength = 8,
   showLabels = true 
 }) {

@@ -131,7 +131,7 @@ function StepVisualization({ stepConfig, functionConfig }: { stepConfig: StepCon
       <CoordinateGrid 
         size={8} 
         showZAxis={true} 
-        gridRotation={[0, 0, 0]} 
+        gridRotation={[Math.PI / 2, 0, 0]} 
         axisLength={8} 
         showLabels={true} 
       />
@@ -190,7 +190,7 @@ function StepManager({
         <Canvas 
           camera={{ 
             position: currentStepConfig.cameraTilt || [0, 0, 8], 
-            fov: 50 
+            fov: 60
           }} 
           style={{ background: '#f8fafc' }}
         >
