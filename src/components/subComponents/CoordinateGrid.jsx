@@ -24,6 +24,7 @@ function CoordinateGrid({
         followCamera={false}
         infiniteGrid={true}
         rotation={gridRotation}
+        side={2}
       />
       
       {/* X axis (red) */}
