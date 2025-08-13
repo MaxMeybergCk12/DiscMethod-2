@@ -9,7 +9,7 @@ function App() {
   
   const flexi_steps = [
     // 2D Steps (1-6)
-    { pose: Flexi.teacher, message: "Let's start with the 2D function! This is y = 2 - x" },
+    { pose: Flexi.teacher, message: "Let's start with the 2D function! This is y = 2 - x (drag your mouse to see in 3D)" },
     { pose: Flexi.excited, message: "Now see how we can approximate with 2 rectangles!" },
     { pose: Flexi.thumbs_up, message: "4 rectangles give us a better approximation!" },
     { pose: Flexi.stars, message: "8 rectangles give us an even better approximation!" },
